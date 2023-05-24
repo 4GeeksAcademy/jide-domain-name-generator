@@ -2,10 +2,29 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+window.onload = () => {
+  document.querySelector("#btn").addEventListener("click", () => {
+    document.querySelector("#the-excuse").innerHTML = generateExcuse();
+  });
+};
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+let generateExcuse = () => {
+  const pronoun = ["the", "our"];
+  const adjective = [
+    "great",
+    "big",
+    "massive",
+    "enormous",
+    "ginormous",
+    "crazy"
+  ];
+  const noun = ["jogger", "racoon", "dog", "driver", "clown", "pinecone"];
+
+  const pronounIndx = Math.floor(Math.random() * pronoun.length);
+  const adjectiveIndx = Math.floor(Math.random() * noun.length);
+  const nounIndx = Math.floor(Math.random() * noun.length);
+
+  return (
+    pronoun[pronounIndx] + " " + adjective[adjectiveIndx] + " " + noun[nounIndx]
+  );
 };
